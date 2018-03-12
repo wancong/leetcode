@@ -1,5 +1,5 @@
 """
-a pure python implementation of the selection sort algorithm
+a pure python implementation of the merge sort algorithm
 """
 
 def merge_sort(coll):
