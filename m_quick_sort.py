@@ -21,6 +21,8 @@ def m_quick_sort(coll):
     
     >>> m_quick_sort([3, 2, 1, 4, 0])
     [0, 1, 2, 3, 4]
+    >>> m_quick_sort([1])
+    [1]
     >>> m_quick_sort([])
     []
     >>> m_quick_sort([-2, -1, -3])
