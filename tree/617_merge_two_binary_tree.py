@@ -29,17 +29,20 @@ class TreeNode(object):
         self.right = None
         
 
-class Solution(object):
+class Solution(object):        
     def merge_trees(self, t1, t2):
         """
         :type t1: TreeNode
         :type t2: TreeNode
         :rtype: TreeNode  
         """
-        root = TreeNode(0)
-        root.val = t1.val + t2.val
-        merge_trees(root.left, t1.left, t2.left)
-        merge_trees(root.right, t1.right, t2.right)
+        if t1 and t2:
+            root = TreeNode(t1.val + t2.val)
+            root.left = self.merge_trees(t1.left, t2.left)
+            root.right = self.merge_trees(t1.right, t2.right)
+            return root
+        else:
+            return t1 or t2
         
 if __name__ == "__main__":
     node11 = TreeNode(1)
@@ -63,7 +66,23 @@ if __name__ == "__main__":
     node23.right = node25
     
     new_node = Solution().merge_trees(node11, node21)
-    print(new_node.left.left.val)
+    def print_tree(t):
+        if t: 
+            print(t.val, end=" ")
+        else:
+            print("None", end=" ")
+        if t.left: 
+            print_tree(t.left)
+        else:
+            print("None", end=" ")
+        if t.right: 
+            print_tree(t.right)
+        else:
+            print("None", end=" ")
+    print_tree(new_node)
+        
+        
+        
         
         
         
